@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  margin: 0;
+}
+.ql-container{
+  height: 90vh;
+}
+.container .ql-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: beige;
+  box-shadow: 0 5px 10px 0px rgba(65, 63, 63, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+/* .ql-toolbar span, .ql-formats{
+  color: white;
+} */
+.container .ql-editor {
+  width: 70%;
+  height: 30rem;
+  margin: 1rem auto;
+  background-color: beige;
+  color: black;
+  border: 1px solid rgb(212, 212, 134);
+}

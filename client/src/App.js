@@ -1,18 +1,20 @@
 import TextEditor from "./TextEditor";
-import { BrowserRouter, Routes, Route, Navigate  } from "react-router-dom";
-import {v4 as uuidV4} from "uuid";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import EnterRoom from "./pages/EnterRoom";
+import { Toaster } from "react-hot-toast";
 
 function App() {
-
   return (
-    <div className="App">
+    <div className="App bg-[beige]">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate replace to={`/documents/${uuidV4()}`}  />} exact>
-          </Route>
-          <Route path="/documents/:id" element={<TextEditor />} />
+          <Route path="/" element={<Navigate replace to="/join" />}></Route>
+          <Route path="join" element={<EnterRoom />} />
+          <Route path="/editor/:id" element={<TextEditor />} />
         </Routes>
       </BrowserRouter>
+
+      <Toaster />
     </div>
   );
 }
