@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate replace to="/join" />}></Route>
           <Route path="join" element={<EnterRoom />} />
-          <Route path="/editor/:id" element={<TextEditor />} />
+          <Route path="/editor/:id/:name" element={<TextEditor />} />
         </Routes>
       </BrowserRouter>
 

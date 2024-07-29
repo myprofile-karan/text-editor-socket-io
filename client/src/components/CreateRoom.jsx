@@ -1,36 +1,49 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidV4 } from "uuid";
 
 const CreateRoom = () => {
-  const [name, setName] = useState("");
+  const [adminName, setAdminName] = useState("");
   const [id, setId] = useState(uuidV4());
+  const navigate = useNavigate();
 
   const handleChangeId = (e) => {
     e.preventDefault();
     setId(uuidV4());
-    toast.success("New id created")
+    toast.success("New id created");
   };
 
+  const handleCreateRoom =() =>{
+    if(adminName === ""){
+      return;
+    }
+    navigate(`/editor/${id}/${adminName}`)
+  }
+
   return (
-    <div className="w-[300px] rounded-lg bg-[#e9e9b1] text-black py-12">
+    <div className="w-[300px] rounded-lg bg-[#e9e9b1] text-black py-12 shadow-lg">
       <div className="max-w-md mx-auto px-4">
         <h2 className="text-2xl font-bold mb-4">Create Room</h2>
         <form className="space-y-4">
           <div>
-            <label htmlFor="name" className="block mb-1">Your Name</label>
+            <label htmlFor="name" className="block mb-1">
+              Your Name
+            </label>
             <input
-              id="name"
+              required
+              id="adminName"
               type="text"
               placeholder="Enter Your Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={adminName}
+              onChange={(e) => setAdminName(e.target.value)}
               className="w-full py-2 px-3 bg-[beige] border border-white rounded-md focus:outline-none focus:border-yellow-800"
             />
           </div>
           <div>
-            <label htmlFor="roomId" className="block mb-1">Room ID</label>
+            <label htmlFor="roomId" className="block mb-1">
+              Room ID
+            </label>
             <input
               id="roomId"
               type="text"
@@ -46,12 +59,12 @@ const CreateRoom = () => {
             >
               Get ID
             </button>
-            <Link
-              to={`/editor/${id}`}
+            <button
+            onClick={handleCreateRoom}
               className="bg-[black] hover:bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none"
             >
               Join
-            </Link>
+            </button>
           </div>
         </form>
       </div>

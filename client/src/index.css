@@ -2,17 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
   margin: 0;
   padding: 0;
 }
+.messages{
+  overflow-y: scroll;
+}
+.messages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: #d8d8aa;
+  border-radius: 4px;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+  background: gray;
+}
 body {
   width: 100%;
+  height: 100vh;
   margin: 0;
 }
-.ql-container{
-  height: 90vh;
+.ql-container {
+  height: 91.5vh;
 }
+
 .container .ql-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -28,7 +50,7 @@ body {
 } */
 .container .ql-editor {
   width: 70%;
-  height: 30rem;
+  height: 35rem;
   margin: 1rem auto;
   background-color: beige;
   color: black;
